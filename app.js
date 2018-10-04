@@ -20,9 +20,7 @@ app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
 
-    res.sendFile('/index.html', {
-        root: __dirname
-    });
+    res.sendFile('index.html');
 
 });
 
