@@ -4,19 +4,27 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const User = require('./models/user-model')
 
-mongoose.connect('mongodb://omnify:omnify123@ds121203.mlab.com:21203/omnify', { useNewUrlParser: true }, () => {
+mongoose.connect('mongodb://omnify:omnify123@ds121203.mlab.com:21203/omnify', {
+    useNewUrlParser: true
+}, () => {
     console.log("Connected to db")
 });
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
 app.use(bodyParser.json())
 
 var path = require('path');
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
+
+    res.sendFile('/index.html', {
+        root: __dirname
+    });
+
+});
 
 app.post('/events', (req, res) => {
     var events = req.body['events[]'];
