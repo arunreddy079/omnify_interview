@@ -56,7 +56,7 @@ function execute() {
 }
 gapi.load("client:auth2", function () {
     gapi.auth2.init({
-        client_id: '88623151180-5bqmspnh78nfit4thhdni3v39sd3rn98.apps.googleusercontent.com'
+        client_id: '88623151180-8ud9q0iiim3268p4uf66705re7hrshjd.apps.googleusercontent.com'
     });
 });
 
